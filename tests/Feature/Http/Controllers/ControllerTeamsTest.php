@@ -18,6 +18,9 @@ class ControllerTeamsTest extends TestCase
      */
     public function testExample()
     {
+        $response = $this->json('POST', '/teams/store', ['nama' => $this->faker->words(3, true)]);
+        $response->assertStatus(200);
+        
         // $response = $this->get('/');
 
         // $teams = $factory('App\Models\Teams')->create();
@@ -29,10 +32,6 @@ class ControllerTeamsTest extends TestCase
 
         // $response->assertStatus(200);
 
-        $response = $this->json('POST', '/teams/store', ['nama' => $this->faker->words(3, true)]);
-
-        
-        $response->assertStatus(200);
         // $response
         //     ->assertStatus(200)
         //     ->assertJson([
